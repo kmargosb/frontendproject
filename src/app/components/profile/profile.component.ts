@@ -8,11 +8,21 @@ import { ProfileService } from "../../services/profile.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-
-  userId = String;
-
+  
   profile: any = [];
+  
+  userId: any = this.profile._id;
 
+  data: any = {
+    username: this.profile.username,
+      firstname: this.profile.firstname,
+      lastname: this.profile.lastname,
+      email: this.profile.email,
+      password: this.profile.password,
+      picture: this.profile.picture
+
+  }
+  
   constructor(private profileService: ProfileService){}
 
   ngOnInit(){
@@ -24,5 +34,15 @@ export class ProfileComponent {
       },
       error: err => console.log(err)
     })
+  }
+
+  putData(){
+    this.profileService.updateProfile(this.data)
+  .subscribe({
+    next: res => {
+      console.log(res)     
+    },
+    error: err => console.log(err)
+  })
   }
 }
