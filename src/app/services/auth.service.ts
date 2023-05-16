@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
 
-  private URL = 'http://localhost:3000'
+  private URL = 'https://backend123.fly.dev'
 
   constructor(
     private http: HttpClient,
