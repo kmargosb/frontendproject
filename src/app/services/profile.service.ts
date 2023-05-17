@@ -7,9 +7,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class ProfileService {
+  
 
-  private URL = 'https://backend123.fly.dev'
-  // private URL = 'http://localhost:3000'
+  // private URL = 'https://backend123.fly.dev'
+  private URL = 'http://localhost:3000'
 
   constructor(
     private http: HttpClient,
@@ -24,5 +25,11 @@ export class ProfileService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.put<any>(url, data, {headers});
+  }
+  deleteProfile() {
+    const url = `${this.URL}/user`;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.delete<any>(url, {headers})
   }
 }
