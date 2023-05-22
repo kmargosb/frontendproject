@@ -1,1 +1,33 @@
-<p>private-homepage works!</p>
+<div class="row">
+    <div class="col-md-3" *ngFor="let pro of product">
+      <div class="card">
+        <div class="card-body">
+          <div id="carousel-{{pro._id}}" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let image of pro.images; let i = index" [class.active]="i === 0">
+                <img class="d-block w-100" [src]="image.url" alt="Product Image">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-{{product._id}}" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-{{product._id}}" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">Price: {{ product.price }}</p>
+          <div class="d-flex align-items-center">
+            <div class="user-thumbnail">
+              <img class="rounded-circle" [src]="product.user.thumbnail" alt="User Thumbnail">
+            </div>
+            <p class="ml-2">{{ product.user.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

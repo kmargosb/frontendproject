@@ -2,10 +2,10 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <h1>Perfil de Usuario</h1>
-      <form (submit)="putData()">
+      <form (submit)="putData()" enctype="multipart/form-data">
         <div class="form-group">
           <label for="photo">Foto de Perfil</label>
-          <input type="file" class="form-control-file" id="photo">
+          <input type="file" [(ngModel)]="data.picture" name="picture" class="form-control-file" id="photo">
         </div>
         <div class="form-group">
           <label for="firstName">Nombre</label>

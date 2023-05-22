@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from "../../services/profile.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-private-homepage',
@@ -8,23 +9,38 @@ import { ProfileService } from "../../services/profile.service";
 })
 export class PrivateHomepageComponent {
 
-  userId: string = ''
+  profile: any = [];
+  userId: any = this.profile._id;
+
+  product: any = []
+  
 
   constructor(
-    private profileService: ProfileService
-  ){}
+    private profileService: ProfileService,
+    private authService: AuthService
+  ) { }
 
 
-
-  ngOnInit(){
+  ngOnInit() {
     this.profileService.profileId()
-    .subscribe({
-      next: res => {
-        this.userId = res.userId
-        console.log(this.userId)
-      },
-      error: err => console.log(err)
-    })
+      .subscribe({
+        next: res => {
+          this.profile = res;
+          console.log(res)
+        },
+        error: err => console.log(err)
+      })
+  }
+
+  getProducts() {
+    this.authService.getProduct()
+      .subscribe({
+        next: res => {
+          this.product = res;              
+          console.log(res)
+        },
+        error: err => console.log(err)
+      })
   }
 
 }

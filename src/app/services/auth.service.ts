@@ -29,7 +29,15 @@ export class AuthService {
 
   getToken(){
     return localStorage.getItem('token')
-  } 
+  }
+
+  getProduct(){
+    return this.http.get<any>(this.URL + '/private-homepage');
+  }
+
+  addProduct(product: any){
+    return this.http.post<any>(this.URL + '/add-product', product)
+  }
 
   logOut(){
     localStorage.removeItem('token');

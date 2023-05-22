@@ -13,6 +13,7 @@ import { PrivateHomepageComponent } from './components/private-homepage/private-
 import { AuthGuard } from "./auth.guard";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     HomepageComponent,
     PrivateHomepageComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

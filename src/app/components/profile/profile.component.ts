@@ -11,7 +11,6 @@ import { AuthService } from "../../services/auth.service";
 export class ProfileComponent {
 
   profile: any = [];
-
   userId: any = this.profile._id;
 
   data: any = {
