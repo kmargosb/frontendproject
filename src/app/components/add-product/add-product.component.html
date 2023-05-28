@@ -1,29 +1,29 @@
-<form (submit)="addProducts()">
-    <div class="form-group">
-      <label for="productName">Nombre del producto:</label>
-      <input type="text" class="form-control" id="productName" [(ngModel)]="product.name" name="product.name" placeholder="Nombre del producto">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form (submit)="addProducts()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="productName">Nombre del producto:</label>
+          <input type="text" class="form-control" id="productName" [(ngModel)]="products.name" name="products.name"
+            placeholder="Nombre del producto">
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Descripción del producto:</label>
+          <textarea class="form-control" id="productDescription" [(ngModel)]="products.description"
+            name="products.description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Precio del producto:</label>
+          <input type="number" class="form-control" id="productPrice" [(ngModel)]="products.price"
+            name="products.price">
+        </div>
+        <div class="form-group">
+          <!-- <label for="productImage">Imagen del producto:</label> -->
+          <input type="file" class="d-none" id="productImage" (change)="onPhotoSelected($event)" #photoInput>
+          <img width="150px" [src]="photoSelected || './assets/noImage1.png'" class="img-fluid" alt="No image" (click)="photoInput.click()">
+        </div>
+        <button type="submit" class="btn btn-primary">Subir producto</button>
+      </form>
     </div>
-  
-    <div class="form-group">
-      <label for="productDescription">Descripción del producto:</label>
-      <textarea class="form-control" id="productDescription" [(ngModel)]="product.description" name="product.description"></textarea>
-    </div>
-  
-    <div class="form-group">
-      <label for="productPrice">Precio del producto:</label>
-      <input type="number" class="form-control" id="productPrice" [(ngModel)]="product.price" name="product.price">
-    </div>
-  
-    <div class="form-group">
-      <label for="productImage">Imagen del producto:</label>
-      <input type="file" class="form-control-file" id="productImage"  accept="image/*">
-    </div>
-  
-    <div class="form-group">
-      <label>Previsualización de la imagen:</label>
-      <img [src]="" alt="Vista previa de la imagen" class="img-fluid" >
-    </div>
-  
-    <button type="submit" class="btn btn-primary">Subir producto</button>
-  </form>
-  
+  </div>
+</div>

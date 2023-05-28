@@ -9,11 +9,12 @@ import { SingupComponent } from './components/singup/singup.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PrivateHomepageComponent } from './components/private-homepage/private-homepage.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 import { AuthGuard } from "./auth.guard";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
-import { ProfileComponent } from './components/profile/profile.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     HomepageComponent,
     PrivateHomepageComponent,
     ProfileComponent,
-    AddProductComponent
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,12 +31,14 @@ export class AuthService {
     return localStorage.getItem('token')
   }
 
-  getProduct(){
-    return this.http.get<any>(this.URL + '/private-homepage');
-  }
-
-  addProduct(product: any){
-    return this.http.post<any>(this.URL + '/add-product', product)
+  addProduct(name: string, description: string, price: any, image: File, user: string){
+    const fd = new FormData();
+    fd.append('name', name);
+    fd.append('description', description);
+    fd.append('price', price);
+    fd.append('image', image);
+    fd.append('user', user)
+    return this.http.post<any>(this.URL + '/add-product', fd)
   }
 
   logOut(){

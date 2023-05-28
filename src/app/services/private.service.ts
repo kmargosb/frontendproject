@@ -5,14 +5,14 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class PrivateService {
 
   // private URL = 'https://backend123.fly.dev'
   private URL = 'http://localhost:3000'
 
   constructor(private http: HttpClient) { }
 
-  profileId(){
-    return this.http.get<any>(this.URL + `/private_home`)
+  getProductP(){
+    return this.http.get<any>(this.URL + `/private-homepage`)
   }
 }
