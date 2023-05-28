@@ -14,6 +14,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 
 import { AuthGuard } from "./auth.guard";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
+import { CardsProductComponent } from './components/cards-product/cards-product.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
     PrivateHomepageComponent,
     ProfileComponent,
     AddProductComponent,
+    CardsProductComponent,
   ],
   imports: [
     BrowserModule,

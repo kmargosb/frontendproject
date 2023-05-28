@@ -7,25 +7,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-       <ng-container *ngIf="!authService.loggedIn(); else loggedIn ">
-         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/singup">Singup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
-        </li>
-       </ng-container>
-       <ng-template #loggedIn>
-        <li class="nav-item">
-          <a class="btn btn-success ml-2" routerLink="/add-product">Add Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" style="cursor: pointer;" aria-current="page" routerLink="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="authService.logOut()" routerLink="/homepage">Logout</a>
-        </li>
-       </ng-template>
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ng-container>
+        <ng-template #loggedIn>
+          <li class="nav-item">
+            <a class="btn btn-success ml-2" routerLink="/add-product"
+              *ngIf="authService.loggedIn()">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="cursor: pointer;" aria-current="page" routerLink="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="authService.logOut()" routerLink="/homepage">Logout</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

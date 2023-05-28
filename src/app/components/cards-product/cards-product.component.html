@@ -1,0 +1,20 @@
+<div class="container p-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+    <div class="col mb-4" *ngFor="let product of products">
+      <div class="card h-100">
+        <div class="card-img-container">
+          <img [src]="product.photoUrl.imageURL" class="card-img-top custom-card-image" alt="Product Image">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">{{ product.price }}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">User: {{ product.user }}</small>
+          <a href="#" class="btn btn-primary">Ver más...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

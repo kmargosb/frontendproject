@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
+import { Products } from "../interfaces/products";
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class PrivateService {
     fd.append('user', user)
     return this.http.post<any>(this.URL + '/add-product', fd)
   }
-  
+
   getProductP(){
-    return this.http.get<any>(this.URL + `/private-homepage`)
+    return this.http.get<Products[]>(this.URL + `/private-homepage`)
   }
 }

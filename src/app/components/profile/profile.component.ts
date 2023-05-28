@@ -10,6 +10,9 @@ import { AuthService } from "../../services/auth.service";
 })
 export class ProfileComponent {
 
+  file!: File;
+  photoUser!: String | ArrayBuffer | null;
+
   profile: any = [];
   userId: any = this.profile._id;
 
@@ -37,6 +40,16 @@ export class ProfileComponent {
         },
         error: err => console.log(err)
       })
+  }
+
+  onPhoto(event: any): void {
+    if(event.target.files && event.target.files[0]) {
+      this.file = <File>event.target.files[0];
+      // image preview
+      const reader = new FileReader();
+      reader.onload = e => this.photoUser = reader.result;
+      reader.readAsDataURL(this.file)
+    }
   }
 
   putData() {
