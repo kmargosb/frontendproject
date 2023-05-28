@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { ProfileService } from "../../services/profile.service";
+import { PrivateService } from "../../services/private.service";
 
 
 
@@ -34,9 +34,9 @@ export class AddProductComponent {
   }
  
   constructor(
-    private authService: AuthService,
     private router: Router,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private privateService: PrivateService
   ) { }
 
   ngOnInit() {
@@ -61,7 +61,7 @@ export class AddProductComponent {
   }
 
   addProducts() {
-    this.authService.addProduct(this.products.name, this.products.description, this.products.price, this.file, this.userId)
+    this.privateService.addProduct(this.products.name, this.products.description, this.products.price, this.file, this.userId)
       .subscribe({
         next: res => {
           console.log(res);

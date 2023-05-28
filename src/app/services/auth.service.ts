@@ -26,24 +26,15 @@ export class AuthService {
   loggedIn(): boolean{
     return !!localStorage.getItem('token');
   }
-
-  getToken(){
-    return localStorage.getItem('token')
-  }
-
-  addProduct(name: string, description: string, price: any, image: File, user: string){
-    const fd = new FormData();
-    fd.append('name', name);
-    fd.append('description', description);
-    fd.append('price', price);
-    fd.append('image', image);
-    fd.append('user', user)
-    return this.http.post<any>(this.URL + '/add-product', fd)
-  }
-
+  
   logOut(){
     localStorage.removeItem('token');
     this.router.navigate(['/homepage'])
   }
+  
+  getToken(){
+    return localStorage.getItem('token')
+  }  
+
 
 }
