@@ -1,0 +1,12 @@
+.rounded-circle {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.img-fluid{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}

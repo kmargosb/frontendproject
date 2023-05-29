@@ -11,12 +11,8 @@ export class PrivateHomepageComponent {
   profile: any = [];
   userId: any = this.profile._id;
 
-  products: any = [];
-  
-
   constructor(
     private profileService: ProfileService,
-    
   ) { }
 
 
