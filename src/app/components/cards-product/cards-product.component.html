@@ -12,7 +12,7 @@
         </div>
         <div class="card-footer">
           <small class="text-muted">User: {{ product.user }}</small>
-          <a  class="btn btn-primary">Ver más...</a>
+          <a  class="btn btn-primary" (click)="getCardData(product)" routerLink="/product">Ver más...</a>
         </div>
       </div>
     </div>

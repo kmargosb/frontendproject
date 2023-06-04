@@ -1,0 +1,22 @@
+<div class="container" >
+    <div class="row">
+      <div class="col-md-10 offset-md-1 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <img [src]="product?.photoUrl?.imageURL" class="img-fluid" alt="Producto">
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title">{{product?.name}}</h5>
+                <p class="card-text">{{product?.description}}</p>
+                <p class="card-text">{{product?.price}}</p>
+                <p class="card-text">Vendedor: {{product?.user}}</p>
+                <a  class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

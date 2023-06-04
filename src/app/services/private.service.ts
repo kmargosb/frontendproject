@@ -11,6 +11,8 @@ export class PrivateService {
   // private URL = 'https://backend123.fly.dev'
   private URL = 'http://localhost:3000'
 
+  private selectProduct: any;
+
   constructor(private http: HttpClient) { }
 
   addProduct(name: string, description: string, price: any, image: File, user: string){
@@ -26,4 +28,14 @@ export class PrivateService {
   getProductP(){
     return this.http.get<Products[]>(this.URL + `/private-homepage`)
   }
+  
+  setSelectProduct(product: any): void {
+    this.selectProduct = product;
+  }
+  
+  getSelectProduct(): any {
+    return this.selectProduct;
+  }
+
+  
 }
